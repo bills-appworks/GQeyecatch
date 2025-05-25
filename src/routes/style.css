@@ -5,8 +5,6 @@
  * http://opensource.org/licenses/mit-license.php
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
-
 :global(html), :global(body) {
   margin: 0;
 }
@@ -287,9 +285,3 @@ input, textarea {
     font-size: 16pt;
   }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100.900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@100.900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
