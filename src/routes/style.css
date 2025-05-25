@@ -1,0 +1,294 @@
+/*
+ * GQuuuuuuXアイキャッチ風アニメ画像ジェネレータ
+ * Copyright (c) 2025 bills-appworks
+ * This software is released under the MIT License.
+ * http://opensource.org/licenses/mit-license.php
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100.900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@100.900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+:global(html), :global(body) {
+  margin: 0;
+}
+
+:global(body) {
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #000000;
+  font-family: sans-serif;
+}
+
+header, footer, main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  text-align: center;
+  color: lightseagreen;
+}
+
+#title {
+  font-family: sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: palegreen;
+  font-size: 10pt;
+}
+
+input, textarea {
+  background-color: black;
+  color: white;
+  border: 1px solid lightseagreen;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.properties {
+  margin-left: auto;
+  margin-right: auto;
+  width: 22em;
+  display: inline-block;
+  margin: 0.5em 0 0.5em 0;
+  border: 2px solid lightseagreen;
+}
+
+.property-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 4px;
+  position: relative;
+}
+
+.property-item > * {
+  margin: 0.5em;
+}
+
+.property-label {
+  box-sizing: border-box;
+  width: 6rem;
+  font-size: small;
+}
+
+.property-item > input[type="range"] {
+  box-sizing: border-box;
+  width: 9em;
+  appearance: none;
+  border: none;
+}
+
+.property-item > input[type="range"]::-webkit-slider-runnable-track {
+  background: lightseagreen;
+  height: 0.5rem;
+  border-radius: 0.25em;
+}
+
+.property-item > input[type="range"]::-moz-range-track {
+  background: lightseagreen;
+  height: 0.5rem;
+  border-radius: 0.25em;
+}
+
+.property-item > input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  background-color: palegreen;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  transform: scale(2);
+}
+
+.property-item > input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  background-color: palegreen;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  transform: scale(2);
+}
+
+.property-item > input[type="number"] {
+  box-sizing: border-box;
+  width: 7em;
+}
+
+.functions > button {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.section-title {
+  margin-top: 0.5em;
+}
+
+#qux {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.2em;
+  padding-right: 0.4em;
+  width: 8em;
+  font-family: "Saira Stencil One";
+  font-size: 24pt;
+  font-weight: 900;
+  color: #FFFFFF;
+  font-style: italic;
+  position: relative;
+  background-color: transparent;
+  text-align: left;
+  /* 上位の領域クリック用ボタンを非表示にしているため表示明示指定 */
+  visibility: visible;
+}
+
+#qux:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('texture.png');
+  z-index: 1;
+}
+
+#qux-suffix {
+  vertical-align: -11%; 
+}
+
+.displayed-button {
+  padding: 0.5em;
+}
+
+/* 疑似ボタン（クリッカブルにする領域用）を非表示 */
+.pseudo-button {
+  visibility: hidden;
+}
+
+#gif-area-button {
+  /* Safariでクリックが効かない事象の回避 */
+  position: relative;
+  display: inline-block;
+}
+
+#gif {
+  display: block;
+  /* 上位の領域クリック用ボタンを非表示にしているため表示明示指定 */
+  visibility: visible;
+}
+
+#gif-click-layer {
+  /* Safariでクリックが効かない事象の回避 */
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+}
+
+#replay-url-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+}
+
+#replay-url-header > * {
+  margin: 0.5em;
+}
+
+#copy-replay-url {
+  font-size: small;
+}
+
+#replay-url {
+  box-sizing: border-box;
+  width: 100%;
+  height: 5em;
+}
+
+.copied_balloon {
+  padding: 0 0.5em 0 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: small;
+  color: #000000;
+  background-color: palegreen;
+  visibility: hidden;
+  transition: opacity 0.5s;
+  transition-delay: 1s;
+  opacity: 1;
+  /* for callout */
+  position: relative;
+}
+
+.copied_balloon_fadeout {
+  opacity: 0;
+  visibility: visible;
+}
+
+.copied_balloon::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: -0.4em;
+  padding: 0.35em;
+  background:inherit;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(45deg);
+}
+
+.link {
+  background-color: #888888;
+}
+
+@media (min-width: 768px) {
+  #title {
+    font-size: 16pt;
+  }
+
+  #qux {
+    font-size: 56pt;
+  }
+
+  .property-label {
+    font-size: medium;
+  }
+
+  footer {
+    font-size: 16pt;
+  }
+}
+
+@media (min-width: 960px) {
+  header, footer, main {
+    width: 80%;
+  }
+
+  #title {
+    font-size: 20pt;
+  }
+
+  #qux {
+    font-size: 64pt;
+  }
+
+  .property-label {
+    font-size: medium;
+  }
+
+  footer {
+    font-size: 16pt;
+  }
+}
