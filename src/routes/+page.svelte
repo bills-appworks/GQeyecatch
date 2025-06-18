@@ -391,7 +391,7 @@
 
   function parseQueryParameter(): void {
     const url_query: string = location.search;
-    if (url_query && url_query.length > 1) {
+    if (url_query && url_query.length > 0) {
       const url_search_params: URLSearchParams = new URLSearchParams(url_query);
       mediateURLSearchParams(url_search_params, 'text');
       mediateURLSearchParams(url_search_params, 'font');
