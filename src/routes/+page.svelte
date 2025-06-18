@@ -9,7 +9,7 @@
   import { replaceState } from "$app/navigation";
   import GIF from "gif.js";
   import { base } from "$app/paths";
-  import { loadFont, isFontLoaded } from '$lib/fontManager';
+  import { loadFont } from '$lib/fontManager';
 
   // type definitions
 
